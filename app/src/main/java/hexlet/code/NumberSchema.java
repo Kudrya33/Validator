@@ -17,10 +17,10 @@ public class NumberSchema {
         return this;
     }
 
-    public NumberSchema range(Integer minNumber, Integer maxNumber) {
+    public NumberSchema range(Integer minCount, Integer maxCount) {
         this.inTheRange = true;
-        this.minNumber = minNumber;
-        this.maxNumber = maxNumber;
+        this.minNumber = minCount;
+        this.maxNumber = maxCount;
         return this;
     }
 
