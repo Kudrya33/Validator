@@ -4,8 +4,8 @@ public class NumberSchema {
     private boolean isRequired = false;
     private boolean isPositive = false;
     private boolean inTheRange = false;
-    private Integer minNumber;
-    private Integer maxNumber;
+    private Integer minNumber = Integer.MIN_VALUE;
+    private Integer maxNumber = Integer.MAX_VALUE;
 
     public NumberSchema required() {
         this.isRequired = true;
@@ -25,20 +25,20 @@ public class NumberSchema {
     }
 
     public boolean isValid(Integer count) {
-        if(isRequired) {
-            if(count == null) {
+        if (isRequired) {
+            if (count == null) {
                 return false;
             }
         }
 
-        if(isPositive) {
-            if(count <= 0) {
+        if (isPositive) {
+            if (count <= 0) {
                 return false;
             }
         }
 
-        if(inTheRange) {
-            if(count < minNumber || count > maxNumber) {
+        if (inTheRange) {
+            if (count < minNumber || count > maxNumber) {
                 return false;
             }
         }
