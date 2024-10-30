@@ -12,9 +12,9 @@ public abstract class BaseSchema<T> {
         return this;
     }
 
-    public boolean isValid(T value) {
+    public boolean isValid(Object value) {
         for (Predicate<T> rule : rules.values()) {
-            if (!rule.test(value)) {
+            if (!rule.test((T) value)) {
                 return false;
             }
         }
