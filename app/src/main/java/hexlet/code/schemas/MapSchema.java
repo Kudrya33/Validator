@@ -6,17 +6,17 @@ import java.util.Map;
 public class MapSchema extends BaseSchema<Map<String, Object>> {
     private Map<String, BaseSchema<String>> shapeSchemas = new HashMap<>();
 
-    public MapSchema required() {
+    public final MapSchema required() {
         addRule("required", value -> value != null);
         return this;
     }
 
-    public MapSchema sizeof(int size) {
+    public final MapSchema sizeof(int size) {
         addRule("sizeof", value -> value != null && value.size() == size);
         return this;
     }
 
-    public MapSchema shape(Map<String, BaseSchema<String>> schemas) {
+    public final MapSchema shape(Map<String, BaseSchema<String>> schemas) {
         this.shapeSchemas = schemas;
         addRule("shape", value -> {
             if (value == null) {
