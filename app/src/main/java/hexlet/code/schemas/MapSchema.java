@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MapSchema extends BaseSchema<Map<String, Object>> {
-    private Map<String, BaseSchema<String>> shapeSchemas = new HashMap<>();
 
     public final MapSchema required() {
         addRule("required", value -> value != null);
@@ -17,7 +16,7 @@ public class MapSchema extends BaseSchema<Map<String, Object>> {
     }
 
     public final MapSchema shape(Map<String, BaseSchema<String>> schemas) {
-        this.shapeSchemas = schemas;
+        Map<String, BaseSchema<String>> shapeSchemas = new HashMap<>(schemas);
         addRule("shape", value -> {
             if (value == null) {
                 return true;
